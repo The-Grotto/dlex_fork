@@ -17,7 +17,7 @@ defmodule Dlex.Adapters.GRPC do
   end
 
   defp gen_stub_options(opts) do
-    adapter_opts = %{http2_opts: %{keepalive: opts[:keepalive]}}
+    adapter_opts = [http2_opts: %{keepalive: opts[:keepalive]}]
     stub_opts = [adapter_opts: adapter_opts]
 
     case gen_ssl_config(opts) do

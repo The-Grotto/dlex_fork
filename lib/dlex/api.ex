@@ -3,7 +3,7 @@ alias Dlex.Api
 defmodule Api.Request.RespFormat do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :JSON, 0
   field :RDF, 1
@@ -12,7 +12,7 @@ end
 defmodule Api.Operation.DropOp do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :NONE, 0
   field :ALL, 1
@@ -24,7 +24,7 @@ end
 defmodule Api.Facet.ValType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :STRING, 0
   field :INT, 1
@@ -36,7 +36,7 @@ end
 defmodule Api.Request.VarsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -45,7 +45,7 @@ end
 defmodule Api.Request do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :start_ts, 1, type: :uint64, json_name: "startTs"
   field :query, 4, type: :string
@@ -61,7 +61,7 @@ end
 defmodule Api.Uids do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :uids, 1, repeated: true, type: :string
 end
@@ -69,7 +69,7 @@ end
 defmodule Api.ListOfString do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :value, 1, repeated: true, type: :string
 end
@@ -77,7 +77,7 @@ end
 defmodule Api.Response.UidsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -86,7 +86,7 @@ end
 defmodule Api.Response.HdrsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Api.ListOfString
@@ -95,7 +95,7 @@ end
 defmodule Api.Response do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :json, 1, type: :bytes
   field :txn, 2, type: Api.TxnContext
@@ -109,7 +109,7 @@ end
 defmodule Api.Mutation do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :set_json, 1, type: :bytes, json_name: "setJson"
   field :delete_json, 2, type: :bytes, json_name: "deleteJson"
@@ -124,7 +124,7 @@ end
 defmodule Api.Operation do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :schema, 1, type: :string
   field :drop_attr, 2, type: :string, json_name: "dropAttr"
@@ -137,7 +137,7 @@ end
 defmodule Api.Payload do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :Data, 1, type: :bytes
 end
@@ -145,7 +145,7 @@ end
 defmodule Api.TxnContext do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :start_ts, 1, type: :uint64, json_name: "startTs"
   field :commit_ts, 2, type: :uint64, json_name: "commitTs"
@@ -158,13 +158,13 @@ end
 defmodule Api.Check do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 end
 
 defmodule Api.Version do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :tag, 1, type: :string
 end
@@ -172,7 +172,7 @@ end
 defmodule Api.Latency do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :parsing_ns, 1, type: :uint64, json_name: "parsingNs"
   field :processing_ns, 2, type: :uint64, json_name: "processingNs"
@@ -184,7 +184,7 @@ end
 defmodule Api.Metrics.NumUidsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :uint64
@@ -193,7 +193,7 @@ end
 defmodule Api.Metrics do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :num_uids, 1,
     repeated: true,
@@ -205,7 +205,7 @@ end
 defmodule Api.NQuad do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :subject, 1, type: :string
   field :predicate, 2, type: :string
@@ -219,7 +219,7 @@ end
 defmodule Api.Value do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   oneof(:val, 0)
 
@@ -234,13 +234,14 @@ defmodule Api.Value do
   field :datetime_val, 9, type: :bytes, json_name: "datetimeVal", oneof: 0
   field :password_val, 10, type: :string, json_name: "passwordVal", oneof: 0
   field :uid_val, 11, type: :uint64, json_name: "uidVal", oneof: 0
+  field :bigfloat_val, 12, type: :bytes, json_name: "bigfloatVal", oneof: 0
   field :vfloat32_val, 13, type: :bytes, json_name: "vfloat32Val", oneof: 0
 end
 
 defmodule Api.Facet do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :bytes
@@ -252,7 +253,7 @@ end
 defmodule Api.LoginRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :userid, 1, type: :string
   field :password, 2, type: :string
@@ -263,7 +264,7 @@ end
 defmodule Api.Jwt do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :access_jwt, 1, type: :string, json_name: "accessJwt"
   field :refresh_jwt, 2, type: :string, json_name: "refreshJwt"
@@ -272,7 +273,7 @@ end
 defmodule Api.Dgraph.Service do
   @moduledoc false
 
-  use GRPC.Service, name: "api.Dgraph", protoc_gen_elixir_version: "0.12.0"
+  use GRPC.Service, name: "api.Dgraph", protoc_gen_elixir_version: "0.14.1"
 
   rpc(:Login, Api.LoginRequest, Api.Response)
 
