@@ -166,6 +166,8 @@ defmodule Dlex.Repo do
     end
   end
 
+  def encode(%DateTime{} = datetime), do: datetime
+
   def encode(%{__struct__: struct} = data) do
     data
     |> Map.from_struct()
@@ -291,6 +293,16 @@ defmodule Dlex.Repo do
         values -> {:cont, Map.put(acc, key, values)}
       end
     end)
+  end
+
+  defp do_decode_field(struct, {field_name, :datetime}, value, _lookup, _strict?) do
+    case DateTime.from_iso8601(value) do
+      {:ok, loaded_value, _} ->
+        Map.put(struct, field_name, loaded_value)
+
+      :error ->
+        {:error, {:load_error, field_name, :utc_datetime, value}}
+    end
   end
 
   defp do_decode_field(struct, {field_name, field_type}, value, lookup, strict?) do

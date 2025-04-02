@@ -126,6 +126,7 @@ defmodule Dlex.Node do
       def __schema__(:fields), do: unquote(fields)
       def __schema__(:alter), do: unquote(Macro.escape(alter))
       def __schema__(:depends_on), do: unquote(Dlex.Node.__depends_on_modules__(__MODULE__))
+      def __schema__(:redact_fields), do: unquote([])
 
       for %Dlex.Field{name: name, type: type} <- @fields_data do
         def __schema__(:type, unquote(name)), do: unquote(type)
@@ -279,7 +280,7 @@ defmodule Dlex.Node do
   defp gen_opt({key, _value}, _type) when key in @ignore_keys, do: []
   defp gen_opt({:index, true}, type), do: [{"index", true}, {"tokenizer", [db_type(type)]}]
 
-  defp gen_opt({:index, tokenizers}, :string) when is_list(tokenizers),
+  defp gen_opt({:index, tokenizers}, _type) when is_list(tokenizers),
     do: [{"index", true}, {"tokenizer", tokenizers}]
 
   defp gen_opt({key, value}, _type), do: [{Atom.to_string(key), value}]

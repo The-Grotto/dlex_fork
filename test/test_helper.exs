@@ -49,6 +49,7 @@ defmodule Dlex.User do
     field :friends, {:list, :uid}
     field :location, Dlex.Geo
     field :cache, :any, virtual: true
+    field :inserted_at, :datetime
   end
 end
 

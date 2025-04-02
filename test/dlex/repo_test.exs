@@ -17,7 +17,7 @@ defmodule Dlex.RepoTest do
     end
 
     test "basic crud operations" do
-      user = %User{name: "Alice", age: 25}
+      user = %User{name: "Alice", age: 25, inserted_at: DateTime.utc_now()}
       assert {:ok, %User{uid: uid}} = TestRepo.set(user)
       assert uid != nil
       assert {:ok, %User{uid: ^uid, name: "Alice", age: 25}} = TestRepo.get(uid)
