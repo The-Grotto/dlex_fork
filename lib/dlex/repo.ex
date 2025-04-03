@@ -334,6 +334,7 @@ defmodule Dlex.Repo do
   end
 
   defp do_alter_schema(conn, %{"schema" => schema, "types" => types}, snapshot) do
+    ### TODO: May want to add the ability to remove no longer used fields
     delta = %{
       "schema" => snapshot["schema"] -- schema,
       "types" => delta_types(snapshot["types"], types)

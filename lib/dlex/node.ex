@@ -76,7 +76,7 @@ defmodule Dlex.Node do
     quote do
       @depends_on unquote(depends_on)
 
-      import Dlex.Node, only: [shared: 1, schema: 2]
+      import Dlex.Node, only: [shared: 2, schema: 2]
     end
   end
 
@@ -90,8 +90,8 @@ defmodule Dlex.Node do
     end
   end
 
-  defmacro shared(block) do
-    prepare = prepare_block(nil, block)
+  defmacro shared(name, block) do
+    prepare = prepare_block(name, block)
     postprocess = postprocess()
 
     quote do
@@ -213,7 +213,8 @@ defmodule Dlex.Node do
       with {:error, error} <- Code.ensure_compiled(depends_on),
            do: raise("Module `#{depends_on}` not available, error: #{error}")
 
-      field_name = Atom.to_string(name)
+      depends_on_name = depends_on |> Module.split() |> List.last()
+      field_name = "#{depends_on_name}.#{Atom.to_string(name)}"
 
       if module == depends_on do
         {field_name, type, alter_field(field_name, type, opts)}
